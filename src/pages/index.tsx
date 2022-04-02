@@ -8,6 +8,7 @@ import { ClientRepository } from 'core/ClientRepository'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useCallback, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import { ClientCollection } from '../firebase/ClientCollection'
 
 const Home: NextPage = () => {
@@ -43,11 +44,14 @@ const Home: NextPage = () => {
   async function deleteClient(client: Client) {
     await clientRepository.delete(client)
     await getAll()
+    toast.error('Client deleted!')
   }
 
   async function saveClient(client: Client) {
     await clientRepository.save(client)
     await getAll()
+
+    toast.success('Client saved!')
   }
 
   return (
