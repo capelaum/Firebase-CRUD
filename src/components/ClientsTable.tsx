@@ -52,10 +52,13 @@ export function ClientsTable({
 
   function renderClientsData() {
     return clients.map((client) => (
-      <tr key={client.id} className="odd:bg-indigo-200 even:bg-indigo-100">
-        <td className="text-left p-4 font-bold">{client.id}</td>
-        <td className="text-left p-4 font-bold">{client.name}</td>
-        <td className="text-left p-4 font-bold">{client.email}</td>
+      <tr
+        key={client.id}
+        className="odd:bg-indigo-200 even:bg-indigo-100 text-gray-800"
+      >
+        <td className="text-left p-4 font-semibold">{client.id}</td>
+        <td className="text-left p-4 font-semibold">{client.name}</td>
+        <td className="text-left p-4 font-semibold">{client.email}</td>
         {isRenderActions && renderActions(client)}
       </tr>
     ))
